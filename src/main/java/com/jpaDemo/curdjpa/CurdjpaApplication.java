@@ -19,6 +19,7 @@ public class CurdjpaApplication {
 			System.out.println("The Database is connected.");
 			System.out.println("Ready to execute JPA commands.");
 			System.out.println("=========================================");
+			System.out.println("Ready for Crud");
 		};
 	}
 }
