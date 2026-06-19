@@ -21,6 +21,7 @@ public class CurdjpaApplication {
 			System.out.println("=========================================");
 			System.out.println("Ready for Crud");
 			System.out.println("=========================================");
+			System.out.println("=========================================");
 		};
 	}
 }
