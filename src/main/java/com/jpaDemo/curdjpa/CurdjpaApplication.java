@@ -1,5 +1,6 @@
 package com.jpaDemo.curdjpa;
 
+import com.jpaDemo.curdjpa.Entity.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,16 +13,17 @@ public class CurdjpaApplication {
 		SpringApplication.run(CurdjpaApplication.class, args);
 	}
     @Bean
-	public CommandLineRunner commandLineRunner(String[]args){
+	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return runner ->{
-			System.out.println("=========================================");
-			System.out.println("SUCCESS: The application is actually running.");
-			System.out.println("The Database is connected.");
-			System.out.println("Ready to execute JPA commands.");
-			System.out.println("=========================================");
-			System.out.println("Ready for Crud");
-			System.out.println("=========================================");
-			System.out.println("=========================================");
+			createStudent(studentDAO);
 		};
+		private void createStudent(StudentDAO studentDAO){
+			System.out.println("Creating temp Student...");
+			Student tempStudent= new Student("Hossain", "Ayman", "aymanhossain@gmail.com");
+			System.out.println("Saving temp Student...");
+			studentDAO.save(tempStudent);
+			System.out.println("Saved Student, ID: "+tempStudent.getId());
+
+		}
 	}
 }
