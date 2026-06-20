@@ -1,4 +1,4 @@
-package com.jpaDemo.curdjpa;
+package com.jpaDemo.curdjpa.dao;
 
 import com.jpaDemo.curdjpa.Entity.Student;
 

@@ -1,11 +1,14 @@
-package com.jpaDemo.curdjpa;
+package com.jpaDemo.curdjpa.dao;
 
 import com.jpaDemo.curdjpa.Entity.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-public class StudentDAOImpl implements StudentDAO{
-    private EntityManager entityManager;
+@Repository
+public class StudentDAOImpl implements StudentDAO {
+    private final EntityManager entityManager;
 
     @Autowired
     public StudentDAOImpl(EntityManager entityManager) {
@@ -14,6 +17,7 @@ public class StudentDAOImpl implements StudentDAO{
 
 
     @Override
+    @Transactional
     public void save(Student theStudent) {
         entityManager.persist(theStudent);
     }
