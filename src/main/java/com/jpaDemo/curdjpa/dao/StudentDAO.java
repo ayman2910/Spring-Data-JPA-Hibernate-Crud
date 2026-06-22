@@ -4,4 +4,5 @@ import com.jpaDemo.curdjpa.Entity.Student;
 
 public interface StudentDAO {
      void save(Student theStudent);
+     Student findById(Integer theId);
 }

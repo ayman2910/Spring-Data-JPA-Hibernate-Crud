@@ -16,15 +16,29 @@ public class CurdjpaApplication {
     @Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return runner ->{
-			createStudent(studentDAO);
+			//createStudent(studentDAO);
+			readStudent(studentDAO);
 		};
 	}
 	private void createStudent(StudentDAO studentDAO){
-		System.out.println("Creating temp Student...");
-		Student tempStudent= new Student("Hossain", "Ayman", "aymanhossain@gmail.com");
+		System.out.println("Creating temp Students...");
+		Student tempStudent= new Student("Nabatin", "Nower", "mugdho@gmail.com");
+		Student tempStudent1= new Student("Suhaila", "Obdhi", "obobaby@gmail.com");
+
+		Student tempStudent2 = new Student("Muntasir", "Hossain", "dhruba@gmail.com");
+
 		System.out.println("Saving temp Student...");
 		studentDAO.save(tempStudent);
-		System.out.println("Saved Student, ID: "+tempStudent.getId());
+		studentDAO.save(tempStudent1);
+		studentDAO.save(tempStudent2);
+		System.out.println("Saved Student, ID: "+ tempStudent.getId()+ "\n "+tempStudent1.getId()+ "\n "+tempStudent2.getId()+ "\n");
 
+	}
+	private void readStudent(StudentDAO studentDAO){
+		System.out.println("Reading Student...");
+		System.out.println(studentDAO.findById(1));
+		System.out.println(studentDAO.findById(2));
+		System.out.println(studentDAO.findById(3));
+		System.out.println(studentDAO.findById(4));
 	}
 }
