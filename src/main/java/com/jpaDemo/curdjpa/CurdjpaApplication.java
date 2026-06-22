@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class CurdjpaApplication {
 
@@ -17,12 +19,22 @@ public class CurdjpaApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return runner ->{
 			//createStudent(studentDAO);
-			readStudent(studentDAO);
+			//readStudent(studentDAO);
+			queryStudentsByLastName(studentDAO);
+
 		};
 	}
+
+	private void queryStudentsByLastName(StudentDAO studentDAO) {
+        List<Student> students = studentDAO.findByLastName("Hossain");
+		for (Student student : students) {
+			System.out.println(student);
+		}
+	}
+
 	private void createStudent(StudentDAO studentDAO){
 		System.out.println("Creating temp Students...");
-		Student tempStudent= new Student("Nabatin", "Nower", "mugdho@gmail.com");
+		Student tempStudent= new Student("Nabatin", "Hossain", "mugdho@gmail.com");
 		Student tempStudent1= new Student("Suhaila", "Obdhi", "obobaby@gmail.com");
 
 		Student tempStudent2 = new Student("Muntasir", "Hossain", "dhruba@gmail.com");
