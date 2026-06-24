@@ -68,7 +68,7 @@ public class CurdjpaApplication {
 		Student tempStudent4 = new Student("Suhaila", "Obdhi", "obobaby@gmail.com");
 		Student tempStudent= new Student("John", "Doe", "johndoe@gmail.com");
 		Student tempStudent1= new Student("Oliver", "Kahn", "olive@gmail.com");
-
+		Student tempStudent5 = new Student("Tony", "Kroos", "tonokroos@gmail.com");
 		Student tempStudent2 = new Student("Manual", "Neuer", "mn1_deutchland@gmail.com");
 
 		System.out.println("Saving temp Student...");
@@ -77,8 +77,10 @@ public class CurdjpaApplication {
 		studentDAO.save(tempStudent);
 		studentDAO.save(tempStudent1);
 		studentDAO.save(tempStudent2);
+		studentDAO.save(tempStudent5);
 		System.out.println("Saved Student, ID: "+ tempStudent.getId()+ "\n "+tempStudent1.getId()+
-				"\n "+tempStudent2.getId()+ "\n" + tempStudent3.getId() +"\n"+tempStudent4.getId());
+				"\n "+tempStudent2.getId()+ "\n" + tempStudent3.getId() +"\n"+tempStudent4.getId()+
+				"\n"+tempStudent4.getId());
 
 	}
 	private void readStudent(StudentDAO studentDAO){
