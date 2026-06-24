@@ -20,9 +20,19 @@ public class CurdjpaApplication {
 		return runner ->{
 			//createStudent(studentDAO);
 			//readStudent(studentDAO);
-			queryStudentsByLastName(studentDAO);
+			//queryStudentsByLastName(studentDAO);
+			updateStudent(studentDAO);
 
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int studentId = 2;
+		Student myStudent= studentDAO.findById(studentId);
+		myStudent.setLastName("Nower");
+		studentDAO.update(myStudent);
+		System.out.println("Updated student " + myStudent);
+
 	}
 
 	private void queryStudentsByLastName(StudentDAO studentDAO) {
